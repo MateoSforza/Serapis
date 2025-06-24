@@ -34,6 +34,8 @@ namespace Serapis.Vista
             if (usuario == null)
             {
                 MessageBox.Show("Usuario o contraseña incorrectos.", "Error de autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtUsuario.Clear();
+                txtContraseña.Clear();
                 return;
             }
 
@@ -51,6 +53,7 @@ namespace Serapis.Vista
             {
                 MessageBox.Show("Rol de usuario no reconocido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+
             }
 
             this.Hide();
