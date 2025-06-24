@@ -15,6 +15,9 @@ namespace Serapis.Datos
 
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Proveedor> Proveedores { get; set; }
+        public DbSet<Compra> Compras { get; set; }
+        public DbSet<ItemCompra> ItemsCompra { get; set; }
     }
 
     public static class DbInitializer

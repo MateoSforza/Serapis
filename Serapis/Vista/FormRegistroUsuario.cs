@@ -56,7 +56,17 @@ namespace Serapis.Vista
             _context.SaveChanges();
 
             MessageBox.Show($"Usuario '{nombre}' registrado como '{rol}'.");
-            LimpiarCampos();
+
+            var continuar = MessageBox.Show("Usuario registrado. ¿Desea registrar otro?", "Confirmación", MessageBoxButtons.YesNo);
+            if (continuar == DialogResult.No)
+            {
+                this.Close();
+            }
+            else
+            {
+                LimpiarCampos();
+            }
+
         }
 
         private void LimpiarCampos()
