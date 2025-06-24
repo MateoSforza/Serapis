@@ -24,7 +24,7 @@ namespace Serapis.Datos
     {
         public static void Inicializar(SerapisDbContext context)
         {
-            // Asegura que la base esté creada
+            // Asegura que la base este creada
             context.Database.EnsureCreated();
 
             // Si ya existe un admin, no hace nada
