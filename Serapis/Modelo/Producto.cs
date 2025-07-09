@@ -17,6 +17,8 @@ namespace Serapis.Modelo
         public string Laboratorio { get; set; }
 
         public bool Activo { get; set; } = true;
+        public bool RequiereReceta { get; set; } = false;
+
 
     }
 }

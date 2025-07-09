@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Serapis.Modelo;
@@ -18,6 +19,12 @@ namespace Serapis.Datos
         public DbSet<Proveedor> Proveedores { get; set; }
         public DbSet<Compra> Compras { get; set; }
         public DbSet<ItemCompra> ItemsCompra { get; set; }
+        public DbSet<Venta> Ventas { get; set; }
+        public DbSet<ItemVenta> ItemsVenta { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Receta> Recetas { get; set; }
+
+
     }
 
     public static class DbInitializer
