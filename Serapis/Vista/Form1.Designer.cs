@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             btnProductos = new Button();
+            btnProveedores = new Button();
             SuspendLayout();
             // 
             // btnProductos
@@ -41,11 +42,22 @@
             btnProductos.UseVisualStyleBackColor = true;
             btnProductos.Click += btnProductos_Click_1;
             // 
+            // btnProveedores
+            // 
+            btnProveedores.Location = new Point(471, 277);
+            btnProveedores.Name = "btnProveedores";
+            btnProveedores.Size = new Size(159, 34);
+            btnProveedores.TabIndex = 1;
+            btnProveedores.Text = "PROVEEDORES";
+            btnProveedores.UseVisualStyleBackColor = true;
+            btnProveedores.Click += btnProveedores_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnProveedores);
             Controls.Add(btnProductos);
             Name = "Form1";
             Text = "Form1";
@@ -55,5 +67,6 @@
         #endregion
 
         private Button btnProductos;
+        private Button btnProveedores;
     }
 }

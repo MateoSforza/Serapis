@@ -9,8 +9,12 @@ namespace Serapis.Modelo
     public class Receta
     {
         public int Id { get; set; }
-        public string Contenido { get; set; } = string.Empty;
-        public DateTime Fecha { get; set; }
-    }
-}
+        public string Detalle { get; set; } = string.Empty;
+        public DateTime Fecha { get; set; } = DateTime.Now;
+        public string? Medico { get; set; }
 
+        public int VentaId { get; set; }
+        public Venta Venta { get; set; }
+    }
+
+}

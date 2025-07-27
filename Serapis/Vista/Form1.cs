@@ -18,5 +18,11 @@ namespace Serapis.Vista
             var formProductos = new FormProductos(_context);
             formProductos.ShowDialog(); // o .Show() si querés que quede abierto en paralelo
         }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            var formProveedores = new FormProveedores(_context);
+            formProveedores.ShowDialog();
+        }
     }
 }

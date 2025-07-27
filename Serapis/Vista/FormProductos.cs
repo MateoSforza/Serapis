@@ -28,7 +28,19 @@ namespace Serapis.Vista
                 ? _context.Productos.ToList()
                 : _context.Productos.Where(p => p.Activo).ToList();
 
-            dgvProductos.DataSource = productos;
+            dgvProductos.DataSource = productos.Select(p => new
+            {
+                p.Id,
+                p.Nombre,
+                p.Codigo,
+                p.Precio,
+                p.Stock,
+                p.FechaVencimiento,
+                p.Laboratorio,
+                Activo = p.Activo ? "Acivo" : "Inactivo"
+            }).ToList();
+
+            dgvProductos.Columns["Id"].Visible = false;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -76,6 +88,11 @@ namespace Serapis.Vista
             {
                 var producto = _context.Productos.First(p => p.Id == seleccionado.Id);
                 producto.Activo = false;
+                if(!producto.Activo)
+                {
+                    MessageBox.Show("El producto ya está inactivo.");
+                    return;
+                }
                 _context.SaveChanges();
                 MessageBox.Show("Producto eliminado correctamente.");
                 btnCargar.PerformClick();
@@ -85,14 +102,14 @@ namespace Serapis.Vista
 
         private void dgvProductos_SelectionChanged(object sender, EventArgs e)
         {
-            if(dgvProductos.CurrentRow?.DataBoundItem is Producto seleccionado)
+            if (dgvProductos.CurrentRow?.Cells["Nombre"].Value != null)
             {
-                txtNombre.Text = seleccionado.Nombre;
-                txtCodigo.Text = seleccionado.Codigo;
-                txtPrecio.Text = seleccionado.Precio.ToString();
-                txtStock.Text = seleccionado.Stock.ToString();
-                dtpFdv.Value = seleccionado.FechaVencimiento;
-                txtLaboratorio.Text = seleccionado.Laboratorio;
+                txtNombre.Text = dgvProductos.CurrentRow.Cells["Nombre"].Value.ToString();
+                txtCodigo.Text = dgvProductos.CurrentRow.Cells["Codigo"].Value.ToString();
+                txtPrecio.Text = dgvProductos.CurrentRow.Cells["Precio"].Value.ToString();
+                txtStock.Text = dgvProductos.CurrentRow.Cells["Stock"].Value.ToString();
+                dtpFdv.Value = Convert.ToDateTime(dgvProductos.CurrentRow.Cells["FechaVencimiento"].Value);
+                txtLaboratorio.Text = dgvProductos.CurrentRow.Cells["Laboratorio"].Value.ToString();
             }
         }
 

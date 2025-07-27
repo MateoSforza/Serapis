@@ -52,18 +52,18 @@
             // dgvProductos
             // 
             dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductos.Location = new Point(589, 12);
+            dgvProductos.Location = new Point(522, 12);
             dgvProductos.Name = "dgvProductos";
             dgvProductos.RowHeadersWidth = 62;
-            dgvProductos.Size = new Size(717, 381);
+            dgvProductos.Size = new Size(784, 620);
             dgvProductos.TabIndex = 0;
             dgvProductos.SelectionChanged += dgvProductos_SelectionChanged;
             // 
             // btnCargar
             // 
-            btnCargar.Location = new Point(594, 473);
+            btnCargar.Location = new Point(11, 528);
             btnCargar.Name = "btnCargar";
-            btnCargar.Size = new Size(217, 42);
+            btnCargar.Size = new Size(217, 66);
             btnCargar.TabIndex = 1;
             btnCargar.Text = "CARGAR PRODUCTO";
             btnCargar.UseVisualStyleBackColor = true;
@@ -71,9 +71,9 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(594, 415);
+            btnAgregar.Location = new Point(11, 443);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(217, 42);
+            btnAgregar.Size = new Size(217, 69);
             btnAgregar.TabIndex = 2;
             btnAgregar.Text = "AGREGAR PRODUCTO";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -81,21 +81,21 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(125, 248);
+            txtNombre.Location = new Point(129, 15);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(150, 31);
             txtNombre.TabIndex = 3;
             // 
             // txtCodigo
             // 
-            txtCodigo.Location = new Point(125, 305);
+            txtCodigo.Location = new Point(129, 72);
             txtCodigo.Name = "txtCodigo";
             txtCodigo.Size = new Size(150, 31);
             txtCodigo.TabIndex = 4;
             // 
             // txtPrecio
             // 
-            txtPrecio.Location = new Point(125, 362);
+            txtPrecio.Location = new Point(129, 129);
             txtPrecio.Name = "txtPrecio";
             txtPrecio.Size = new Size(150, 31);
             txtPrecio.TabIndex = 5;
@@ -103,7 +103,7 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(37, 254);
+            lblNombre.Location = new Point(12, 18);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(82, 25);
             lblNombre.TabIndex = 6;
@@ -112,7 +112,7 @@
             // lblCodigo
             // 
             lblCodigo.AutoSize = true;
-            lblCodigo.Location = new Point(44, 308);
+            lblCodigo.Location = new Point(12, 75);
             lblCodigo.Name = "lblCodigo";
             lblCodigo.Size = new Size(75, 25);
             lblCodigo.TabIndex = 7;
@@ -121,7 +121,7 @@
             // lblPrecio
             // 
             lblPrecio.AutoSize = true;
-            lblPrecio.Location = new Point(55, 368);
+            lblPrecio.Location = new Point(12, 132);
             lblPrecio.Name = "lblPrecio";
             lblPrecio.Size = new Size(64, 25);
             lblPrecio.TabIndex = 8;
@@ -130,7 +130,7 @@
             // lblStock
             // 
             lblStock.AutoSize = true;
-            lblStock.Location = new Point(60, 424);
+            lblStock.Location = new Point(11, 191);
             lblStock.Name = "lblStock";
             lblStock.Size = new Size(59, 25);
             lblStock.TabIndex = 10;
@@ -138,7 +138,7 @@
             // 
             // txtStock
             // 
-            txtStock.Location = new Point(125, 421);
+            txtStock.Location = new Point(129, 188);
             txtStock.Name = "txtStock";
             txtStock.Size = new Size(150, 31);
             txtStock.TabIndex = 9;
@@ -146,7 +146,7 @@
             // lblFdv
             // 
             lblFdv.AutoSize = true;
-            lblFdv.Location = new Point(11, 557);
+            lblFdv.Location = new Point(11, 322);
             lblFdv.Name = "lblFdv";
             lblFdv.Size = new Size(188, 25);
             lblFdv.TabIndex = 12;
@@ -155,7 +155,7 @@
             // lblLaboratorio
             // 
             lblLaboratorio.AutoSize = true;
-            lblLaboratorio.Location = new Point(11, 473);
+            lblLaboratorio.Location = new Point(12, 240);
             lblLaboratorio.Name = "lblLaboratorio";
             lblLaboratorio.Size = new Size(108, 25);
             lblLaboratorio.TabIndex = 14;
@@ -163,23 +163,23 @@
             // 
             // txtLaboratorio
             // 
-            txtLaboratorio.Location = new Point(125, 470);
+            txtLaboratorio.Location = new Point(129, 237);
             txtLaboratorio.Name = "txtLaboratorio";
             txtLaboratorio.Size = new Size(150, 31);
             txtLaboratorio.TabIndex = 13;
             // 
             // dtpFdv
             // 
-            dtpFdv.Location = new Point(205, 552);
+            dtpFdv.Location = new Point(205, 317);
             dtpFdv.Name = "dtpFdv";
             dtpFdv.Size = new Size(300, 31);
             dtpFdv.TabIndex = 15;
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(841, 415);
+            btnModificar.Location = new Point(256, 443);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(216, 42);
+            btnModificar.Size = new Size(249, 69);
             btnModificar.TabIndex = 16;
             btnModificar.Text = "MODIFICAR PRODUCTO";
             btnModificar.UseVisualStyleBackColor = true;
@@ -187,9 +187,9 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(841, 470);
+            btnEliminar.Location = new Point(256, 525);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(216, 42);
+            btnEliminar.Size = new Size(249, 69);
             btnEliminar.TabIndex = 17;
             btnEliminar.Text = "ELIMINAR PRODUCTO";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -198,7 +198,7 @@
             // cbxInactivos
             // 
             cbxInactivos.AutoSize = true;
-            cbxInactivos.Location = new Point(205, 603);
+            cbxInactivos.Location = new Point(205, 368);
             cbxInactivos.Name = "cbxInactivos";
             cbxInactivos.Size = new Size(164, 29);
             cbxInactivos.TabIndex = 18;

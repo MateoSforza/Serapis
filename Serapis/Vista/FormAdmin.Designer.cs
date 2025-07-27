@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             btnRegistrarUsuario = new Button();
+            lblNombre = new Label();
             SuspendLayout();
             // 
             // btnRegistrarUsuario
@@ -41,19 +42,31 @@
             btnRegistrarUsuario.UseVisualStyleBackColor = true;
             btnRegistrarUsuario.Click += btnRegistrarUsuario_Click;
             // 
+            // lblNombre
+            // 
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(122, 112);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(136, 25);
+            lblNombre.TabIndex = 1;
+            lblNombre.Text = "Nombre Admin";
+            // 
             // FormAdmin
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblNombre);
             Controls.Add(btnRegistrarUsuario);
             Name = "FormAdmin";
             Text = "FormAdmin";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button btnRegistrarUsuario;
+        private Label lblNombre;
     }
 }

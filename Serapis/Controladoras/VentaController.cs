@@ -69,7 +69,7 @@ namespace Serapis.Controladores
             {
                 nuevaVenta.Receta = new Receta
                 {
-                    Contenido = receta,
+                    Detalle = receta,
                     Fecha = DateTime.Now
                 };
             }

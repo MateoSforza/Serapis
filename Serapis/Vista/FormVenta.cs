@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Serapis.Datos;
+using Serapis.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,9 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Serapis.Datos;
-using Serapis.Modelo;
-using Microsoft.EntityFrameworkCore;
 
 namespace Serapis.Vista
 {
@@ -23,6 +23,9 @@ namespace Serapis.Vista
             _context = context;
             CargarClientes();
             CargarProductos();
+            chkRequiereReceta.CheckedChanged += chkRequiereReceta_CheckedChanged;
+            lblReceta.Visible = false;
+            txtReceta.Visible = false;
         }
 
         private void CargarClientes()
@@ -109,10 +112,13 @@ namespace Serapis.Vista
                     }
 
                     // 5. Validar receta si es obligatoria
-                    if (producto.RequiereReceta && string.IsNullOrEmpty(recetaTexto))
+                    if (chkRequiereReceta.Checked)
                     {
-                        MessageBox.Show($"El producto {producto.Nombre} requiere una receta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
+                        if (producto.RequiereReceta && string.IsNullOrEmpty(recetaTexto))
+                        {
+                            MessageBox.Show($"El producto {producto.Nombre} requiere una receta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                     }
 
                     // 6. Armar item
@@ -139,7 +145,14 @@ namespace Serapis.Vista
                     ClienteId = clienteId, // Puede ser null
                     Fecha = DateTime.Now,
                     Total = total,
-                    Receta = recetaTexto,
+                    Receta = chkRequiereReceta.Checked
+                    ? new Receta
+                    {
+                        Detalle = recetaTexto,
+                        Fecha = DateTime.Now,
+                        Medico = "Dr. Pérez" // o podrías pedirlo como un campo extra
+                    }
+                    : null,
                     ItemsVenta = itemsVenta
                 };
 
@@ -171,5 +184,11 @@ namespace Serapis.Vista
             CargarProductos();
         }
 
+        private void chkRequiereReceta_CheckedChanged(object sender, EventArgs e)
+        {
+            bool visible = chkRequiereReceta.Checked;
+            lblReceta.Visible = visible;
+            txtReceta.Visible = visible;
+        }
     }
 }

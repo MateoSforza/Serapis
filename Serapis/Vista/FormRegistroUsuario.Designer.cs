@@ -82,7 +82,7 @@
             // lblRol
             // 
             lblRol.AutoSize = true;
-            lblRol.Location = new Point(229, 296);
+            lblRol.Location = new Point(229, 300);
             lblRol.Name = "lblRol";
             lblRol.Size = new Size(41, 25);
             lblRol.TabIndex = 15;
@@ -91,7 +91,7 @@
             // cbxRol
             // 
             cbxRol.FormattingEnabled = true;
-            cbxRol.Location = new Point(298, 293);
+            cbxRol.Location = new Point(298, 297);
             cbxRol.Name = "cbxRol";
             cbxRol.Size = new Size(182, 33);
             cbxRol.TabIndex = 16;
