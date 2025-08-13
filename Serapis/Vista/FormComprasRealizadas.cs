@@ -48,9 +48,9 @@ namespace Serapis.Vista
                 }).ToList();
 
             dgvProductosCompra.DataSource = productos;
-            dgvProductosCompra.Columns["Id"].Visible = false;
-            dgvProductosCompra.Columns["Cantidad"].ReadOnly = false;
-            dgvProductosCompra.Columns["PrecioUnitario"].ReadOnly = false;
+            dgvProductosCompra.Columns["Id"].Visible = true;
+            dgvProductosCompra.Columns["Cantidad"].ReadOnly = true;
+            dgvProductosCompra.Columns["PrecioUnitario"].ReadOnly = true;
             dgvProductosCompra.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
         }
