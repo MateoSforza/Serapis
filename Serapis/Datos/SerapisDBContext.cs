@@ -46,14 +46,16 @@ namespace Serapis.Datos
             context.Database.EnsureCreated();
 
             // Si ya existe un admin, no hace nada
-            if (context.Usuarios.Any(u => u.Nombre == "admin@admin.com"))
+            if (context.Usuarios.Any(u => u.Email == "admin@admin.com"))
                 return;
 
             var admin = new Usuario
             {
-                Nombre = "admin@admin.com",
-                Contraseña = HashHelper.CalcularHash("admin"),
-                Rol = "Admin"
+                Nombre = "admin",
+                Email = "admin@admin.com",
+                ContraseñaHash = HashHelper.CalcularHash("admin"),
+                Rol = "Admin",
+                Activo= true
             };
 
             context.Usuarios.Add(admin);

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Serapis.Datos;
 
@@ -11,9 +12,11 @@ using Serapis.Datos;
 namespace Serapis.Migrations
 {
     [DbContext(typeof(SerapisDbContext))]
-    partial class SerapisDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250819174855_Inicial")]
+    partial class Inicial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -289,10 +292,6 @@ namespace Serapis.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ContraseñaHash")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

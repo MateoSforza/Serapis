@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Serapis.Modelo;
 using Serapis.Datos;
+using Serapis.Servicios;
 
 namespace Serapis.Controladores
 {
@@ -17,64 +18,83 @@ namespace Serapis.Controladores
             _context = context;
         }
 
-        public string RegistrarVenta(int? clienteId, List<(int productoId, int cantidad)> items, string? receta = null)
+        public List<Cliente> ObtenerClientesActivos()
         {
-            // Validar cliente (opcional)
-            Cliente? cliente = null;
-            if (clienteId.HasValue)
-            {
-                cliente = _context.Clientes.Find(clienteId.Value);
-                if (cliente == null)
-                    return "Cliente no registrado.";
-            }
+            return _context.Clientes.Where(c => c.Activo).ToList();
+        }
 
-            // Validar productos y stock
-            foreach (var item in items)
-            {
-                var producto = _context.Productos.Find(item.productoId);
-                if (producto == null)
-                    return $"Producto con ID {item.productoId} no existe.";
+        public List<Producto> ObtenerProductos(string filtro = "")
+        {
+            return _context.Productos
+                .Where(p => p.Activo &&
+                            (string.IsNullOrEmpty(filtro) ||
+                             p.Nombre.Contains(filtro) ||
+                             p.Codigo.Contains(filtro)))
+                .ToList();
+        }
 
-                if (producto.Stock < item.cantidad)
-                    return $"Stock insuficiente para el producto '{producto.Nombre}'.";
-            }
+        public Producto? ObtenerProductoPorId(int id)
+        {
+            return _context.Productos.Find(id);
+        }
 
-            // Crear la venta
-            var nuevaVenta = new Venta
+        public bool ValidarStock(Producto producto, int cantidad)
+        {
+            if (cantidad > producto.Stock) return false;
+            return true;
+        }
+
+        // Valida si requiere receta
+        public bool ValidarReceta(Producto producto, bool tieneReceta)
+        {
+            return !producto.RequiereReceta || tieneReceta;
+        }
+
+        public string RegistrarVenta(int? clienteId, List<ItemVenta> carrito, string? receta = null)
+        {
+            if (!carrito.Any())
+                return "El carrito está vacío.";
+
+            if(SesionActual.UsuarioLogueado == null)
+                return "Usuario no logueado.";
+
+            var venta = new Venta
             {
                 Fecha = DateTime.Now,
                 ClienteId = clienteId,
+                UsuarioId= SesionActual.UsuarioLogueado.Id,
                 Total = 0,
                 ItemsVenta = new List<ItemVenta>()
             };
 
-            foreach (var item in items)
+            foreach (var item in carrito)
             {
-                var producto = _context.Productos.Find(item.productoId)!;
+                var producto = _context.Productos.Find(item.ProductoId);
+                if (producto == null) return $"Producto con ID {item.ProductoId} no encontrado.";
+                if (producto.Stock < item.Cantidad) return $"Stock insuficiente para {producto.Nombre}";
 
-                var nuevoItem = new ItemVenta
+                producto.Stock -= item.Cantidad;
+
+                venta.ItemsVenta.Add(new ItemVenta
                 {
-                    ProductoId = producto.Id,
-                    Cantidad = item.cantidad,
-                    PrecioUnitario = producto.Precio
-                };
+                    ProductoId = item.ProductoId,
+                    Cantidad = item.Cantidad,
+                    PrecioUnitario = item.PrecioUnitario
+                });
 
-                nuevaVenta.ItemsVenta.Add(nuevoItem);
-                producto.Stock -= item.cantidad;
-                nuevaVenta.Total += producto.Precio * item.cantidad;
+                venta.Total += item.Cantidad * item.PrecioUnitario;
             }
 
-            // (Opcional) asociar receta
             if (!string.IsNullOrEmpty(receta))
             {
-                nuevaVenta.Receta = new Receta
+                venta.Receta = new Receta
                 {
                     Detalle = receta,
                     Fecha = DateTime.Now
                 };
             }
 
-            _context.Ventas.Add(nuevaVenta);
+            _context.Ventas.Add(venta);
             _context.SaveChanges();
 
             return "OK";
