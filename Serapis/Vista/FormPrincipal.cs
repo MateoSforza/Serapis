@@ -121,29 +121,25 @@ namespace Serapis.Vista
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            using var formConfirm = new FormComfirmExit();
-            if (formConfirm.ShowDialog() == DialogResult.OK)
+            using (var formConfirm = new FormComfirmExit())
             {
-                if (formConfirm.Accion == FormComfirmExit.AccionSeleccionada.CerrarSesion)
+                if (formConfirm.ShowDialog() == DialogResult.OK)
                 {
-                    // Volver al login
-                    var login = this.Controls.OfType<LoginControl>().FirstOrDefault();
-                    if (login != null)
+                    if (formConfirm.Accion == FormComfirmExit.AccionSeleccionada.CerrarSesion)
                     {
-                        this.Controls.Remove(login);
-                        login.Dispose();
+                        SesionActual.UsuarioLogueado = null;
+                        _usuario = null;
+
+                        panelContenido.Visible = false;
+                        panelLateral.Visible = false;
+
+                        MostrarLogin();
+
                     }
-
-                    // Mostrar UI principal
-                    panelSplash.Visible = true;
-                    panelContenido.Visible = true;
-                    panelLateral.Visible = true; // si tenés panel de botones
-
-                    ConfigurarAcceso();
-                }
-                else if (formConfirm.Accion == FormComfirmExit.AccionSeleccionada.SalirPrograma)
-                {
-                    Application.Exit();
+                    else if (formConfirm.Accion == FormComfirmExit.AccionSeleccionada.SalirPrograma)
+                    {
+                        Application.Exit();
+                    }
                 }
             }
         }

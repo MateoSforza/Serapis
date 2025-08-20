@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            txtEmail = new TextBox();
+            lblEmail = new Label();
             btnCambiarContraseña = new Button();
             btnEliminar = new Button();
             btnRegistrar = new Button();
@@ -39,8 +41,6 @@
             txtContraseña = new TextBox();
             txtNombre = new TextBox();
             dgvUsuarios = new DataGridView();
-            lblEmail = new Label();
-            txtEmail = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             SuspendLayout();
@@ -63,6 +63,22 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(399, 646);
             panel1.TabIndex = 1;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(165, 114);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(150, 31);
+            txtEmail.TabIndex = 1;
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(64, 117);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(58, 25);
+            lblEmail.TabIndex = 9;
+            lblEmail.Text = "Email:";
             // 
             // btnCambiarContraseña
             // 
@@ -108,7 +124,7 @@
             cbxRol.Location = new Point(154, 256);
             cbxRol.Name = "cbxRol";
             cbxRol.Size = new Size(182, 33);
-            cbxRol.TabIndex = 4;
+            cbxRol.TabIndex = 3;
             // 
             // lblContraseña
             // 
@@ -133,7 +149,7 @@
             txtContraseña.Location = new Point(165, 175);
             txtContraseña.Name = "txtContraseña";
             txtContraseña.Size = new Size(150, 31);
-            txtContraseña.TabIndex = 1;
+            txtContraseña.TabIndex = 2;
             // 
             // txtNombre
             // 
@@ -151,22 +167,6 @@
             dgvUsuarios.RowHeadersWidth = 62;
             dgvUsuarios.Size = new Size(396, 646);
             dgvUsuarios.TabIndex = 2;
-            // 
-            // lblEmail
-            // 
-            lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(64, 117);
-            lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(58, 25);
-            lblEmail.TabIndex = 9;
-            lblEmail.Text = "Email:";
-            // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(165, 114);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(150, 31);
-            txtEmail.TabIndex = 10;
             // 
             // PanelUsuariosControl
             // 

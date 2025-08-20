@@ -23,6 +23,12 @@ namespace Serapis.Vista
             InitializeComponent();
             _usuarioController = usuarioController;
             _usuarios = new List<Usuario>();
+
+            cbxRol.Items.Clear();
+            cbxRol.Items.Add("Empleado");
+            cbxRol.Items.Add("Admin");
+            cbxRol.SelectedIndex = 0; // Por defecto, seleccionamos "Empleado"
+
             CargarUsuarios();
         }
 
