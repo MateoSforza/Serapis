@@ -62,6 +62,7 @@
             // 
             // panel1
             // 
+            panel1.AutoSize = true;
             panel1.Controls.Add(btnCargar);
             panel1.Controls.Add(lblBaja);
             panel1.Controls.Add(cbxInactivos);
@@ -69,9 +70,9 @@
             panel1.Controls.Add(btnModificar);
             panel1.Controls.Add(btnAgregar);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 512);
+            panel1.Location = new Point(0, 522);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1106, 132);
+            panel1.Size = new Size(1106, 122);
             panel1.TabIndex = 0;
             // 
             // btnCargar
@@ -87,7 +88,7 @@
             // lblBaja
             // 
             lblBaja.AutoSize = true;
-            lblBaja.Location = new Point(752, 18);
+            lblBaja.Location = new Point(632, 15);
             lblBaja.Name = "lblBaja";
             lblBaja.Size = new Size(131, 25);
             lblBaja.TabIndex = 19;
@@ -96,7 +97,7 @@
             // cbxInactivos
             // 
             cbxInactivos.FormattingEnabled = true;
-            cbxInactivos.Location = new Point(910, 15);
+            cbxInactivos.Location = new Point(790, 12);
             cbxInactivos.Name = "cbxInactivos";
             cbxInactivos.Size = new Size(182, 33);
             cbxInactivos.TabIndex = 18;
@@ -169,7 +170,7 @@
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(359, 512);
+            panel2.Size = new Size(359, 522);
             panel2.TabIndex = 1;
             // 
             // txtDNI
@@ -295,7 +296,7 @@
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(359, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(747, 512);
+            panel3.Size = new Size(747, 522);
             panel3.TabIndex = 2;
             // 
             // dgvClientes
@@ -305,13 +306,14 @@
             dgvClientes.Location = new Point(0, 0);
             dgvClientes.Name = "dgvClientes";
             dgvClientes.RowHeadersWidth = 62;
-            dgvClientes.Size = new Size(747, 512);
+            dgvClientes.Size = new Size(747, 522);
             dgvClientes.TabIndex = 11;
             // 
             // PanelClientesControl
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -324,6 +326,7 @@
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

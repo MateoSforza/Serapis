@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
-            panelSplash = new Panel();
+            pbxFarmacia = new PictureBox();
             panelContenido = new Panel();
             panelComprasRealizadas = new Panel();
             panelRegistrarCompras = new Panel();
@@ -51,25 +51,26 @@
             btnClientes = new Button();
             btnProductos = new Button();
             btnVenta = new Button();
-            pbxFarmacia = new PictureBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
-            panelSplash.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxFarmacia).BeginInit();
             panelContenido.SuspendLayout();
             panelLateral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbxFarmacia).BeginInit();
             SuspendLayout();
             // 
-            // panelSplash
+            // pbxFarmacia
             // 
-            panelSplash.Controls.Add(pbxFarmacia);
-            panelSplash.Dock = DockStyle.Fill;
-            panelSplash.Location = new Point(0, 0);
-            panelSplash.Name = "panelSplash";
-            panelSplash.Size = new Size(1331, 995);
-            panelSplash.TabIndex = 0;
+            pbxFarmacia.Dock = DockStyle.Fill;
+            pbxFarmacia.Image = (Image)resources.GetObject("pbxFarmacia.Image");
+            pbxFarmacia.Location = new Point(0, 0);
+            pbxFarmacia.Name = "pbxFarmacia";
+            pbxFarmacia.Size = new Size(1037, 777);
+            pbxFarmacia.SizeMode = PictureBoxSizeMode.Zoom;
+            pbxFarmacia.TabIndex = 0;
+            pbxFarmacia.TabStop = false;
             // 
             // panelContenido
             // 
+            panelContenido.Controls.Add(pbxFarmacia);
             panelContenido.Controls.Add(panelComprasRealizadas);
             panelContenido.Controls.Add(panelRegistrarCompras);
             panelContenido.Controls.Add(panelUsuarios);
@@ -78,9 +79,9 @@
             panelContenido.Controls.Add(panelClientes);
             panelContenido.Controls.Add(panelVentas);
             panelContenido.Dock = DockStyle.Fill;
-            panelContenido.Location = new Point(180, 0);
+            panelContenido.Location = new Point(171, 0);
             panelContenido.Name = "panelContenido";
-            panelContenido.Size = new Size(1151, 995);
+            panelContenido.Size = new Size(1037, 777);
             panelContenido.TabIndex = 1;
             // 
             // panelComprasRealizadas
@@ -88,7 +89,7 @@
             panelComprasRealizadas.Dock = DockStyle.Fill;
             panelComprasRealizadas.Location = new Point(0, 0);
             panelComprasRealizadas.Name = "panelComprasRealizadas";
-            panelComprasRealizadas.Size = new Size(1151, 995);
+            panelComprasRealizadas.Size = new Size(1037, 777);
             panelComprasRealizadas.TabIndex = 2;
             panelComprasRealizadas.Visible = false;
             // 
@@ -97,7 +98,7 @@
             panelRegistrarCompras.Dock = DockStyle.Fill;
             panelRegistrarCompras.Location = new Point(0, 0);
             panelRegistrarCompras.Name = "panelRegistrarCompras";
-            panelRegistrarCompras.Size = new Size(1151, 995);
+            panelRegistrarCompras.Size = new Size(1037, 777);
             panelRegistrarCompras.TabIndex = 2;
             panelRegistrarCompras.Visible = false;
             // 
@@ -106,7 +107,7 @@
             panelUsuarios.Dock = DockStyle.Fill;
             panelUsuarios.Location = new Point(0, 0);
             panelUsuarios.Name = "panelUsuarios";
-            panelUsuarios.Size = new Size(1151, 995);
+            panelUsuarios.Size = new Size(1037, 777);
             panelUsuarios.TabIndex = 1;
             panelUsuarios.Visible = false;
             // 
@@ -115,7 +116,7 @@
             panelProductos.Dock = DockStyle.Fill;
             panelProductos.Location = new Point(0, 0);
             panelProductos.Name = "panelProductos";
-            panelProductos.Size = new Size(1151, 995);
+            panelProductos.Size = new Size(1037, 777);
             panelProductos.TabIndex = 1;
             panelProductos.Visible = false;
             // 
@@ -124,7 +125,7 @@
             panelProveedores.Dock = DockStyle.Fill;
             panelProveedores.Location = new Point(0, 0);
             panelProveedores.Name = "panelProveedores";
-            panelProveedores.Size = new Size(1151, 995);
+            panelProveedores.Size = new Size(1037, 777);
             panelProveedores.TabIndex = 1;
             panelProveedores.Visible = false;
             // 
@@ -133,7 +134,7 @@
             panelClientes.Dock = DockStyle.Fill;
             panelClientes.Location = new Point(0, 0);
             panelClientes.Name = "panelClientes";
-            panelClientes.Size = new Size(1151, 995);
+            panelClientes.Size = new Size(1037, 777);
             panelClientes.TabIndex = 1;
             panelClientes.Visible = false;
             // 
@@ -142,7 +143,7 @@
             panelVentas.Dock = DockStyle.Fill;
             panelVentas.Location = new Point(0, 0);
             panelVentas.Name = "panelVentas";
-            panelVentas.Size = new Size(1151, 995);
+            panelVentas.Size = new Size(1037, 777);
             panelVentas.TabIndex = 0;
             panelVentas.Visible = false;
             // 
@@ -162,17 +163,17 @@
             panelLateral.Dock = DockStyle.Left;
             panelLateral.Location = new Point(0, 0);
             panelLateral.Name = "panelLateral";
-            panelLateral.Size = new Size(180, 995);
+            panelLateral.Size = new Size(171, 777);
             panelLateral.TabIndex = 1;
             // 
             // btnSalir
             // 
             btnSalir.Dock = DockStyle.Top;
-            btnSalir.Location = new Point(0, 906);
+            btnSalir.Location = new Point(0, 704);
             btnSalir.Margin = new Padding(10);
             btnSalir.Name = "btnSalir";
             btnSalir.Padding = new Padding(5);
-            btnSalir.Size = new Size(180, 91);
+            btnSalir.Size = new Size(171, 71);
             btnSalir.TabIndex = 17;
             btnSalir.Text = "Cerrar sesion / Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -181,11 +182,11 @@
             // btnConfiguracion
             // 
             btnConfiguracion.Dock = DockStyle.Top;
-            btnConfiguracion.Location = new Point(0, 816);
+            btnConfiguracion.Location = new Point(0, 633);
             btnConfiguracion.Margin = new Padding(10);
             btnConfiguracion.Name = "btnConfiguracion";
             btnConfiguracion.Padding = new Padding(5);
-            btnConfiguracion.Size = new Size(180, 90);
+            btnConfiguracion.Size = new Size(171, 71);
             btnConfiguracion.TabIndex = 16;
             btnConfiguracion.Text = "Configuracion";
             btnConfiguracion.UseVisualStyleBackColor = true;
@@ -194,11 +195,11 @@
             // btnEmpleados
             // 
             btnEmpleados.Dock = DockStyle.Top;
-            btnEmpleados.Location = new Point(0, 726);
+            btnEmpleados.Location = new Point(0, 562);
             btnEmpleados.Margin = new Padding(10);
             btnEmpleados.Name = "btnEmpleados";
             btnEmpleados.Padding = new Padding(5);
-            btnEmpleados.Size = new Size(180, 90);
+            btnEmpleados.Size = new Size(171, 71);
             btnEmpleados.TabIndex = 15;
             btnEmpleados.Text = "EMPLEADOS";
             btnEmpleados.UseVisualStyleBackColor = true;
@@ -207,11 +208,11 @@
             // btnReportes
             // 
             btnReportes.Dock = DockStyle.Top;
-            btnReportes.Location = new Point(0, 636);
+            btnReportes.Location = new Point(0, 491);
             btnReportes.Margin = new Padding(10);
             btnReportes.Name = "btnReportes";
             btnReportes.Padding = new Padding(5);
-            btnReportes.Size = new Size(180, 90);
+            btnReportes.Size = new Size(171, 71);
             btnReportes.TabIndex = 14;
             btnReportes.Text = "REPORTES";
             btnReportes.UseVisualStyleBackColor = true;
@@ -220,11 +221,11 @@
             // btnLaboratorio
             // 
             btnLaboratorio.Dock = DockStyle.Top;
-            btnLaboratorio.Location = new Point(0, 546);
+            btnLaboratorio.Location = new Point(0, 420);
             btnLaboratorio.Margin = new Padding(10);
             btnLaboratorio.Name = "btnLaboratorio";
             btnLaboratorio.Padding = new Padding(5);
-            btnLaboratorio.Size = new Size(180, 90);
+            btnLaboratorio.Size = new Size(171, 71);
             btnLaboratorio.TabIndex = 13;
             btnLaboratorio.Text = "LABORATORIO";
             btnLaboratorio.UseVisualStyleBackColor = true;
@@ -233,11 +234,11 @@
             // btnVerCompra
             // 
             btnVerCompra.Dock = DockStyle.Top;
-            btnVerCompra.Location = new Point(0, 454);
+            btnVerCompra.Location = new Point(0, 350);
             btnVerCompra.Margin = new Padding(10);
             btnVerCompra.Name = "btnVerCompra";
             btnVerCompra.Padding = new Padding(5);
-            btnVerCompra.Size = new Size(180, 92);
+            btnVerCompra.Size = new Size(171, 70);
             btnVerCompra.TabIndex = 11;
             btnVerCompra.Text = "VER COMPRA";
             btnVerCompra.UseVisualStyleBackColor = true;
@@ -246,11 +247,11 @@
             // btnRegistrarCompra
             // 
             btnRegistrarCompra.Dock = DockStyle.Top;
-            btnRegistrarCompra.Location = new Point(0, 358);
+            btnRegistrarCompra.Location = new Point(0, 280);
             btnRegistrarCompra.Margin = new Padding(10);
             btnRegistrarCompra.Name = "btnRegistrarCompra";
             btnRegistrarCompra.Padding = new Padding(5);
-            btnRegistrarCompra.Size = new Size(180, 96);
+            btnRegistrarCompra.Size = new Size(171, 70);
             btnRegistrarCompra.TabIndex = 10;
             btnRegistrarCompra.Text = "REGISTRAR COMPRA";
             btnRegistrarCompra.UseVisualStyleBackColor = true;
@@ -259,11 +260,11 @@
             // btnProveedores
             // 
             btnProveedores.Dock = DockStyle.Top;
-            btnProveedores.Location = new Point(0, 268);
+            btnProveedores.Location = new Point(0, 210);
             btnProveedores.Margin = new Padding(10);
             btnProveedores.Name = "btnProveedores";
             btnProveedores.Padding = new Padding(5);
-            btnProveedores.Size = new Size(180, 90);
+            btnProveedores.Size = new Size(171, 70);
             btnProveedores.TabIndex = 12;
             btnProveedores.Text = "PROVEEDORES";
             btnProveedores.UseVisualStyleBackColor = true;
@@ -272,11 +273,11 @@
             // btnClientes
             // 
             btnClientes.Dock = DockStyle.Top;
-            btnClientes.Location = new Point(0, 176);
+            btnClientes.Location = new Point(0, 140);
             btnClientes.Margin = new Padding(10);
             btnClientes.Name = "btnClientes";
             btnClientes.Padding = new Padding(5);
-            btnClientes.Size = new Size(180, 92);
+            btnClientes.Size = new Size(171, 70);
             btnClientes.TabIndex = 7;
             btnClientes.Text = "CLIENTES";
             btnClientes.UseVisualStyleBackColor = true;
@@ -285,11 +286,11 @@
             // btnProductos
             // 
             btnProductos.Dock = DockStyle.Top;
-            btnProductos.Location = new Point(0, 88);
+            btnProductos.Location = new Point(0, 70);
             btnProductos.Margin = new Padding(10);
             btnProductos.Name = "btnProductos";
             btnProductos.Padding = new Padding(5);
-            btnProductos.Size = new Size(180, 88);
+            btnProductos.Size = new Size(171, 70);
             btnProductos.TabIndex = 8;
             btnProductos.Text = "PRODUCTOS";
             btnProductos.UseVisualStyleBackColor = true;
@@ -302,22 +303,11 @@
             btnVenta.Margin = new Padding(10);
             btnVenta.Name = "btnVenta";
             btnVenta.Padding = new Padding(5);
-            btnVenta.Size = new Size(180, 88);
+            btnVenta.Size = new Size(171, 70);
             btnVenta.TabIndex = 9;
             btnVenta.Text = "VENTAS";
             btnVenta.UseVisualStyleBackColor = true;
             btnVenta.Click += btnVenta_Click;
-            // 
-            // pbxFarmacia
-            // 
-            pbxFarmacia.Dock = DockStyle.Fill;
-            pbxFarmacia.Image = (Image)resources.GetObject("pbxFarmacia.Image");
-            pbxFarmacia.Location = new Point(0, 0);
-            pbxFarmacia.Name = "pbxFarmacia";
-            pbxFarmacia.Size = new Size(1331, 995);
-            pbxFarmacia.SizeMode = PictureBoxSizeMode.Zoom;
-            pbxFarmacia.TabIndex = 0;
-            pbxFarmacia.TabStop = false;
             // 
             // contextMenuStrip1
             // 
@@ -330,22 +320,20 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1331, 995);
+            ClientSize = new Size(1208, 777);
             Controls.Add(panelContenido);
             Controls.Add(panelLateral);
-            Controls.Add(panelSplash);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
             Name = "FormPrincipal";
             Text = "FormLogin";
-            panelSplash.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pbxFarmacia).EndInit();
             panelContenido.ResumeLayout(false);
             panelLateral.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pbxFarmacia).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel panelSplash;
         private Panel panelContenido;
         private PictureBox pbxFarmacia;
         private Panel panelUsuarios;

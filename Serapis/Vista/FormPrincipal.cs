@@ -26,7 +26,6 @@ namespace Serapis.Vista
             InitializeComponent();
             _context = new SerapisDbContextFactory().CreateDbContext(Array.Empty<string>());
 
-            panelSplash.Visible = false;
             panelContenido.Visible = false;
             panelLateral.Visible = false; // si tenés un panel lateral para botones
 
@@ -34,21 +33,30 @@ namespace Serapis.Vista
         }
 
 
-            private void MostrarLogin()
-            {
-                var loginControl = new LoginControl(new UsuarioController(_context));
-                loginControl.Dock = DockStyle.None;
-                loginControl.Anchor = AnchorStyles.None;
-                loginControl.Location = new Point(
-                    (this.ClientSize.Width - loginControl.Width) / 2 - 300,
-                    (this.ClientSize.Height - loginControl.Height) / 2 + 220
-                 );
+        private void MostrarLogin()
+        {
+            var loginControl = new LoginControl(new UsuarioController(_context));
+            loginControl.Dock = DockStyle.None;
+            loginControl.Anchor = AnchorStyles.None;
 
-                this.Controls.Add(loginControl);
-                loginControl.BringToFront();
+            CentrarLogin(loginControl);
 
-                loginControl.LoginExitoso += Usuario_Logueado;
-            }
+            this.Controls.Add(loginControl);
+            loginControl.BringToFront();
+
+            loginControl.LoginExitoso += Usuario_Logueado;
+
+            // Reposicionar cuando se cambie el tamaño de la ventana
+            this.Resize += (s, e) => CentrarLogin(loginControl);
+        }
+
+        private void CentrarLogin(Control loginControl)
+        {
+            loginControl.Location = new Point(
+                (this.ClientSize.Width - loginControl.Width) / 2,
+                (this.ClientSize.Height - loginControl.Height) / 2
+            );
+        }
 
         private void Usuario_Logueado(Usuario usuario)
         {
@@ -63,7 +71,6 @@ namespace Serapis.Vista
             }
 
             // Mostrar UI principal
-            panelSplash.Visible = false;
             panelContenido.Visible = true;
             panelLateral.Visible = true; // si tenés panel de botones
 
