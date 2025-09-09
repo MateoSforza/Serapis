@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Serapis.Vista
 {
-    public partial class FormComfirmExit : Form
+    public partial class FormConfirmExit : Form
     {
         public enum AccionSeleccionada
         {
@@ -21,7 +21,7 @@ namespace Serapis.Vista
 
         public AccionSeleccionada Accion { get; private set; } = AccionSeleccionada.Ninguna;
 
-        public FormComfirmExit()
+        public FormConfirmExit()
         {
             InitializeComponent();
         }

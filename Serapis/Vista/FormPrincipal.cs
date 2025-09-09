@@ -128,11 +128,11 @@ namespace Serapis.Vista
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            using (var formConfirm = new FormComfirmExit())
+            using (var formConfirm = new FormConfirmExit())
             {
                 if (formConfirm.ShowDialog() == DialogResult.OK)
                 {
-                    if (formConfirm.Accion == FormComfirmExit.AccionSeleccionada.CerrarSesion)
+                    if (formConfirm.Accion == FormConfirmExit.AccionSeleccionada.CerrarSesion)
                     {
                         SesionActual.UsuarioLogueado = null;
                         _usuario = null;
@@ -143,7 +143,7 @@ namespace Serapis.Vista
                         MostrarLogin();
 
                     }
-                    else if (formConfirm.Accion == FormComfirmExit.AccionSeleccionada.SalirPrograma)
+                    else if (formConfirm.Accion == FormConfirmExit.AccionSeleccionada.SalirPrograma)
                     {
                         Application.Exit();
                     }

@@ -1,6 +1,6 @@
 ﻿namespace Serapis.Vista
 {
-    partial class FormComfirmExit
+    partial class FormConfirmExit
     {
         /// <summary>
         /// Required designer variable.
