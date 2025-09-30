@@ -21,10 +21,8 @@ namespace Serapis
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // Formularios registrados
-            builder.Services.AddTransient<FormLogin>();
-            builder.Services.AddTransient<FormAdmin>();
-            builder.Services.AddTransient<FormEmpleado>();
-            builder.Services.AddTransient<FormProductos>();
+            builder.Services.AddTransient<FormPrincipal>();
+
 
             var app = builder.Build();
 
@@ -35,7 +33,7 @@ namespace Serapis
             }
 
             ApplicationConfiguration.Initialize();
-            var loginForm = app.Services.GetRequiredService<FormLogin>();
+            var loginForm = app.Services.GetRequiredService<FormPrincipal>();
             Application.Run(loginForm);
         }
     }

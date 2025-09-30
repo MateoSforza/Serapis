@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace Serapis.Servicios
 {
@@ -16,5 +16,12 @@ namespace Serapis.Servicios
             var hash = sha256.ComputeHash(bytes);
             return Convert.ToBase64String(hash);
         }
+
+        public static bool VerificarHash(string textoPlano, string hashExistente)
+        {
+            var hashTextoPlano = CalcularHash(textoPlano);
+            return hashTextoPlano == hashExistente;
+        }
     }
 }
+
