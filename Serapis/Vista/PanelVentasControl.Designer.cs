@@ -39,6 +39,7 @@
             lblTotal = new Label();
             btnQuitarProducto = new Button();
             btnConfirmarVenta = new Button();
+            btnFacturar = new Button();
             label1 = new Label();
             lblCliente = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -114,6 +115,7 @@
             panel2.Controls.Add(lblTotal);
             panel2.Controls.Add(btnQuitarProducto);
             panel2.Controls.Add(btnConfirmarVenta);
+            panel2.Controls.Add(btnFacturar);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(lblCliente);
             panel2.Dock = DockStyle.Bottom;
@@ -157,6 +159,16 @@
             btnConfirmarVenta.Text = "CONFIRMAR VENTA";
             btnConfirmarVenta.UseVisualStyleBackColor = true;
             btnConfirmarVenta.Click += btnConfirmarVenta_Click;
+            // 
+            // btnFacturar
+            // 
+            btnFacturar.Location = new Point(675, 74);
+            btnFacturar.Name = "btnFacturar";
+            btnFacturar.Size = new Size(250, 62);
+            btnFacturar.TabIndex = 30;
+            btnFacturar.Text = "FACTURAR";
+            btnFacturar.UseVisualStyleBackColor = true;
+            btnFacturar.Click += btnFacturar_Click;
             // 
             // label1
             // 
@@ -253,6 +265,7 @@
         private Label lblTotal;
         private Button btnQuitarProducto;
         private Button btnConfirmarVenta;
+        private Button btnFacturar;
         private Label label1;
         private Label lblCliente;
     }

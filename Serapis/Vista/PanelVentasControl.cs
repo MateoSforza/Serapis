@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Serapis.Controladores;
-using Serapis.Datos;
+using Serapis.Data;
 using Serapis.Modelo;
 using Serapis.Servicios;
 using System;
@@ -20,12 +20,14 @@ namespace Serapis.Vista
     {
         private readonly VentaController _ventaController;
         private readonly Usuario _usuario;
+        private readonly SerapisDbContext _context;
         private List<ItemVenta> carrito = new List<ItemVenta>();
 
         public PanelVentasControl(SerapisDbContext context, Usuario usuario)
         {
             InitializeComponent();
             _usuario = usuario;
+            _context = context;
             _ventaController = new VentaController(context);
 
             CargarClientes();
@@ -152,7 +154,7 @@ namespace Serapis.Vista
             int? clienteId = cbxCliente.SelectedIndex >= 0 ? (int?)cbxCliente.SelectedValue : null;
             string? recetaTexto = chkRequiereReceta.Checked ? txtReceta.Text.Trim() : null;
 
-            string resultado = _ventaController.RegistrarVenta(clienteId, carrito, recetaTexto);
+            var (resultado, _) = _ventaController.RegistrarVenta(clienteId, carrito, recetaTexto);
 
             if (resultado == "OK")
             {
@@ -180,6 +182,30 @@ namespace Serapis.Vista
             lblReceta.Visible = chkRequiereReceta.Checked;
             txtReceta.Visible = chkRequiereReceta.Checked;
         }
+
+        private void btnFacturar_Click(object? sender, EventArgs e)
+        {
+            if (!carrito.Any())
+            {
+                MessageBox.Show("No hay productos en el carrito.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int? clienteId = cbxCliente.SelectedIndex >= 0 ? (int?)cbxCliente.SelectedValue : null;
+            string? recetaTexto = chkRequiereReceta.Checked ? txtReceta.Text.Trim() : null;
+
+            var (resultado, ventaId) = _ventaController.RegistrarVenta(clienteId, carrito, recetaTexto);
+            if (resultado != "OK" || ventaId == null)
+            {
+                MessageBox.Show(resultado, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using var frm = new FormFacturar(_context, ventaId.Value, clienteId);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+
+            LimpiarFormulario();
+        }
     }
 }
-   

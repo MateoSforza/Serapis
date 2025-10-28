@@ -33,6 +33,7 @@
             btnAgregar = new Button();
             btnCargar = new Button();
             panel2 = new Panel();
+            dgvProductos = new DataGridView();
             txtBuscar = new TextBox();
             lblBuscar = new Label();
             panel1 = new Panel();
@@ -50,15 +51,14 @@
             txtPrecio = new TextBox();
             txtCodigo = new TextBox();
             txtNombre = new TextBox();
-            dgvProductos = new DataGridView();
             panel2.SuspendLayout();
-            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(630, 229);
+            btnEliminar.Location = new Point(646, 162);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(249, 69);
             btnEliminar.TabIndex = 34;
@@ -68,7 +68,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(630, 161);
+            btnModificar.Location = new Point(646, 94);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(249, 62);
             btnModificar.TabIndex = 33;
@@ -78,7 +78,7 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(630, 86);
+            btnAgregar.Location = new Point(646, 19);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(249, 65);
             btnAgregar.TabIndex = 20;
@@ -88,7 +88,7 @@
             // 
             // btnCargar
             // 
-            btnCargar.Location = new Point(630, 304);
+            btnCargar.Location = new Point(646, 237);
             btnCargar.Name = "btnCargar";
             btnCargar.Size = new Size(249, 66);
             btnCargar.TabIndex = 19;
@@ -100,14 +100,25 @@
             // 
             panel2.Controls.Add(dgvProductos);
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 548);
+            panel2.Location = new Point(0, 579);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1027, 395);
+            panel2.Size = new Size(1027, 364);
             panel2.TabIndex = 36;
+            // 
+            // dgvProductos
+            // 
+            dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProductos.Dock = DockStyle.Fill;
+            dgvProductos.Location = new Point(0, 0);
+            dgvProductos.Name = "dgvProductos";
+            dgvProductos.RowHeadersWidth = 62;
+            dgvProductos.Size = new Size(1027, 364);
+            dgvProductos.TabIndex = 1;
+            dgvProductos.SelectionChanged += dgvProductos_SelectionChanged;
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(794, 424);
+            txtBuscar.Location = new Point(810, 357);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(150, 31);
             txtBuscar.TabIndex = 38;
@@ -116,7 +127,7 @@
             // lblBuscar
             // 
             lblBuscar.AutoSize = true;
-            lblBuscar.Location = new Point(632, 427);
+            lblBuscar.Location = new Point(648, 360);
             lblBuscar.Name = "lblBuscar";
             lblBuscar.Size = new Size(146, 25);
             lblBuscar.TabIndex = 37;
@@ -141,13 +152,13 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(579, 548);
+            panel1.Size = new Size(579, 579);
             panel1.TabIndex = 0;
             // 
             // chkRequiereReceta
             // 
             chkRequiereReceta.AutoSize = true;
-            chkRequiereReceta.Location = new Point(157, 369);
+            chkRequiereReceta.Location = new Point(8, 296);
             chkRequiereReceta.Name = "chkRequiereReceta";
             chkRequiereReceta.Size = new Size(158, 29);
             chkRequiereReceta.TabIndex = 36;
@@ -157,7 +168,7 @@
             // chkInactivos
             // 
             chkInactivos.AutoSize = true;
-            chkInactivos.Location = new Point(239, 479);
+            chkInactivos.Location = new Point(341, 296);
             chkInactivos.Name = "chkInactivos";
             chkInactivos.Size = new Size(164, 29);
             chkInactivos.TabIndex = 35;
@@ -167,15 +178,15 @@
             // 
             // dtpFdv
             // 
-            dtpFdv.Location = new Point(239, 428);
+            dtpFdv.Location = new Point(318, 235);
             dtpFdv.Name = "dtpFdv";
-            dtpFdv.Size = new Size(300, 31);
+            dtpFdv.Size = new Size(246, 31);
             dtpFdv.TabIndex = 32;
             // 
             // lblLaboratorio
             // 
             lblLaboratorio.AutoSize = true;
-            lblLaboratorio.Location = new Point(40, 308);
+            lblLaboratorio.Location = new Point(8, 241);
             lblLaboratorio.Name = "lblLaboratorio";
             lblLaboratorio.Size = new Size(108, 25);
             lblLaboratorio.TabIndex = 31;
@@ -183,7 +194,7 @@
             // 
             // txtLaboratorio
             // 
-            txtLaboratorio.Location = new Point(157, 305);
+            txtLaboratorio.Location = new Point(121, 238);
             txtLaboratorio.Name = "txtLaboratorio";
             txtLaboratorio.Size = new Size(150, 31);
             txtLaboratorio.TabIndex = 30;
@@ -191,7 +202,7 @@
             // lblFdv
             // 
             lblFdv.AutoSize = true;
-            lblFdv.Location = new Point(45, 433);
+            lblFdv.Location = new Point(341, 195);
             lblFdv.Name = "lblFdv";
             lblFdv.Size = new Size(188, 25);
             lblFdv.TabIndex = 29;
@@ -200,7 +211,7 @@
             // lblStock
             // 
             lblStock.AutoSize = true;
-            lblStock.Location = new Point(39, 259);
+            lblStock.Location = new Point(7, 192);
             lblStock.Name = "lblStock";
             lblStock.Size = new Size(59, 25);
             lblStock.TabIndex = 28;
@@ -208,7 +219,7 @@
             // 
             // txtStock
             // 
-            txtStock.Location = new Point(157, 256);
+            txtStock.Location = new Point(121, 189);
             txtStock.Name = "txtStock";
             txtStock.Size = new Size(150, 31);
             txtStock.TabIndex = 27;
@@ -216,7 +227,7 @@
             // lblPrecio
             // 
             lblPrecio.AutoSize = true;
-            lblPrecio.Location = new Point(40, 200);
+            lblPrecio.Location = new Point(8, 133);
             lblPrecio.Name = "lblPrecio";
             lblPrecio.Size = new Size(64, 25);
             lblPrecio.TabIndex = 26;
@@ -225,7 +236,7 @@
             // lblCodigo
             // 
             lblCodigo.AutoSize = true;
-            lblCodigo.Location = new Point(40, 143);
+            lblCodigo.Location = new Point(8, 76);
             lblCodigo.Name = "lblCodigo";
             lblCodigo.Size = new Size(75, 25);
             lblCodigo.TabIndex = 25;
@@ -234,7 +245,7 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(40, 86);
+            lblNombre.Location = new Point(8, 19);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(82, 25);
             lblNombre.TabIndex = 24;
@@ -242,35 +253,24 @@
             // 
             // txtPrecio
             // 
-            txtPrecio.Location = new Point(157, 197);
+            txtPrecio.Location = new Point(121, 130);
             txtPrecio.Name = "txtPrecio";
             txtPrecio.Size = new Size(150, 31);
             txtPrecio.TabIndex = 23;
             // 
             // txtCodigo
             // 
-            txtCodigo.Location = new Point(157, 140);
+            txtCodigo.Location = new Point(121, 73);
             txtCodigo.Name = "txtCodigo";
             txtCodigo.Size = new Size(150, 31);
             txtCodigo.TabIndex = 22;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(157, 83);
+            txtNombre.Location = new Point(121, 16);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(150, 31);
             txtNombre.TabIndex = 21;
-            // 
-            // dgvProductos
-            // 
-            dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductos.Dock = DockStyle.Fill;
-            dgvProductos.Location = new Point(0, 0);
-            dgvProductos.Name = "dgvProductos";
-            dgvProductos.RowHeadersWidth = 62;
-            dgvProductos.Size = new Size(1027, 395);
-            dgvProductos.TabIndex = 1;
-            dgvProductos.SelectionChanged += dgvProductos_SelectionChanged;
             // 
             // PanelProductosControl
             // 
@@ -287,9 +287,9 @@
             Name = "PanelProductosControl";
             Size = new Size(1027, 943);
             panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

@@ -2,8 +2,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
-using Serapis.Datos;
 using Serapis.Vista;
+using Serapis.Data;
 
 namespace Serapis
 {

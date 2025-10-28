@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Serapis.Servicios;
-using Serapis.Datos;
 using Serapis.Modelo;
 using Serapis.Controladores;
 
@@ -71,6 +70,16 @@ namespace Serapis.Vista
         private void txtContraseña_Click(object sender, EventArgs e)
         {
             lblError.Visible = false;
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                btnLogin.PerformClick();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

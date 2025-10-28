@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Serapis.Datos;
-using Serapis.Modelo;
-using Serapis.Servicios;
 using Serapis.Controladoras;
 using Serapis.Controladores;
+using Serapis.Data;
+using Serapis.Modelo;
+using Serapis.Servicios;
 
 namespace Serapis.Vista
 {
@@ -79,8 +79,17 @@ namespace Serapis.Vista
 
         private void ConfigurarAcceso()
         {
-            if (!esAdmin)
+            if (esAdmin)
             {
+                // Admin: habilitar y restaurar textos
+                btnEmpleados.Enabled = true;
+                btnConfiguracion.Enabled = true;
+                btnEmpleados.Text = "EMPLEADOS";
+                btnConfiguracion.Text = "Configuracion";
+            }
+            else
+            {
+                // Empleado: deshabilitar y mostrar candado
                 btnEmpleados.Text = "🔒 Empleados";
                 btnConfiguracion.Text = "🔒 Configuración";
 

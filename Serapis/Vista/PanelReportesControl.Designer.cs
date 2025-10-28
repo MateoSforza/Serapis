@@ -39,12 +39,12 @@
             lblDesde = new Label();
             btnGenerar = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
-            dgvProductosCriticos = new DataGridView();
             dgvVentasClientes = new DataGridView();
+            dgvCompras = new DataGridView();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvProductosCriticos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvVentasClientes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCompras).BeginInit();
             SuspendLayout();
             // 
             // dtpDesde
@@ -143,9 +143,9 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(dgvProductosCriticos, 0, 0);
-            tableLayoutPanel1.Controls.Add(dgvVentasClientes, 0, 1);
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(dgvVentasClientes, 0, 0);
+            tableLayoutPanel1.Controls.Add(dgvCompras, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(379, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -155,25 +155,25 @@
             tableLayoutPanel1.Size = new Size(540, 647);
             tableLayoutPanel1.TabIndex = 4;
             // 
-            // dgvProductosCriticos
-            // 
-            dgvProductosCriticos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductosCriticos.Dock = DockStyle.Fill;
-            dgvProductosCriticos.Location = new Point(3, 3);
-            dgvProductosCriticos.Name = "dgvProductosCriticos";
-            dgvProductosCriticos.RowHeadersWidth = 62;
-            dgvProductosCriticos.Size = new Size(534, 317);
-            dgvProductosCriticos.TabIndex = 0;
-            // 
             // dgvVentasClientes
             // 
             dgvVentasClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvVentasClientes.Dock = DockStyle.Fill;
-            dgvVentasClientes.Location = new Point(3, 326);
+            dgvVentasClientes.Location = new Point(3, 3);
             dgvVentasClientes.Name = "dgvVentasClientes";
             dgvVentasClientes.RowHeadersWidth = 62;
-            dgvVentasClientes.Size = new Size(534, 318);
+            dgvVentasClientes.Size = new Size(534, 317);
             dgvVentasClientes.TabIndex = 1;
+            // 
+            // dgvCompras
+            // 
+            dgvCompras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCompras.Dock = DockStyle.Fill;
+            dgvCompras.Location = new Point(3, 326);
+            dgvCompras.Name = "dgvCompras";
+            dgvCompras.RowHeadersWidth = 62;
+            dgvCompras.Size = new Size(534, 318);
+            dgvCompras.TabIndex = 6;
             // 
             // PanelReportesControl
             // 
@@ -186,8 +186,8 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvProductosCriticos).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvVentasClientes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCompras).EndInit();
             ResumeLayout(false);
         }
 
@@ -197,8 +197,8 @@
         private DateTimePicker dtpHasta;
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel1;
-        private DataGridView dgvProductosCriticos;
         private DataGridView dgvVentasClientes;
+        private DataGridView dgvCompras;
         private Label label4;
         private Label label3;
         private Label lblHasta;
