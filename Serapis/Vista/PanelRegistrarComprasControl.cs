@@ -28,6 +28,12 @@ namespace Serapis.Vista
             CargarProveedores();
             ConfigurarDataGridView();
             lblCostoTotal.Text = "$0.00";
+
+            // Conectar evento de cambio de producto
+            cmbProducto.SelectedIndexChanged += cmbProducto_SelectedIndexChanged;
+
+            // Inicializar labels de producto
+            ActualizarInfoProducto();
         }
 
         private void CargarProveedores()
@@ -54,6 +60,27 @@ namespace Serapis.Vista
             dgvProductos.Columns.Add("Cantidad", "Cantidad");
             dgvProductos.Columns.Add("Precio", "Precio");
             dgvProductos.Columns.Add("Subtotal", "Subtotal");
+        }
+
+        private void cmbProducto_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            ActualizarInfoProducto();
+        }
+
+        private void ActualizarInfoProducto()
+        {
+            if (cmbProducto.SelectedItem is Producto producto)
+            {
+                lblCodigo.Text = $"Código: {producto.Codigo}";
+                lblPrecio.Text = $"Precio: {producto.Precio:C}";
+                lblStock.Text = $"Stock: {producto.Stock}";
+            }
+            else
+            {
+                lblCodigo.Text = "Código: -";
+                lblPrecio.Text = "Precio: -";
+                lblStock.Text = "Stock: -";
+            }
         }
 
         private void btnAgregarItem_Click(object sender, EventArgs e)
@@ -132,18 +159,19 @@ namespace Serapis.Vista
         private void ActualizarTotal()
         {
             decimal total = _detalles.Sum(d => d.Subtotal);
-            lblCostoTotal.Text = $"Total: ${total:N2}";
+            lblCostoTotal.Text = $"${total:N2}";
         }
 
         private void LimpiarFormulario()
         {
             _detalles.Clear();
             dgvProductos.Rows.Clear();
-            lblCostoTotal.Text = "Total: $0.00";
+            lblCostoTotal.Text = "$0.00";
             nudCantidad.Value = 1;
             cmbProducto.SelectedIndex = 0;
             cmbProveedor.SelectedIndex = 0;
             dtpFecha.Value = DateTime.Now;
+            ActualizarInfoProducto();
         }
 
         private void dgvItems_DoubleClick(object sender, EventArgs e)

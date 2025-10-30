@@ -38,8 +38,7 @@
             cbxCliente = new ComboBox();
             lblTotal = new Label();
             btnQuitarProducto = new Button();
-            btnConfirmarVenta = new Button();
-            btnFacturar = new Button();
+            btnFacturarConfirmar = new Button();
             label1 = new Label();
             lblCliente = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -62,7 +61,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(805, 150);
+            panel1.Size = new Size(966, 150);
             panel1.TabIndex = 0;
             // 
             // txtReceta
@@ -114,14 +113,13 @@
             panel2.Controls.Add(cbxCliente);
             panel2.Controls.Add(lblTotal);
             panel2.Controls.Add(btnQuitarProducto);
-            panel2.Controls.Add(btnConfirmarVenta);
-            panel2.Controls.Add(btnFacturar);
+            panel2.Controls.Add(btnFacturarConfirmar);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(lblCliente);
             panel2.Dock = DockStyle.Bottom;
             panel2.Location = new Point(0, 495);
             panel2.Name = "panel2";
-            panel2.Size = new Size(805, 150);
+            panel2.Size = new Size(966, 150);
             panel2.TabIndex = 1;
             // 
             // cbxCliente
@@ -142,33 +140,23 @@
             // 
             // btnQuitarProducto
             // 
-            btnQuitarProducto.Location = new Point(27, 74);
+            btnQuitarProducto.Location = new Point(27, 70);
             btnQuitarProducto.Name = "btnQuitarProducto";
-            btnQuitarProducto.Size = new Size(253, 62);
+            btnQuitarProducto.Size = new Size(253, 66);
             btnQuitarProducto.TabIndex = 28;
             btnQuitarProducto.Text = "QUITAR PRODUCTO";
             btnQuitarProducto.UseVisualStyleBackColor = true;
             btnQuitarProducto.Click += btnQuitarProducto_Click;
             // 
-            // btnConfirmarVenta
+            // btnFacturarConfirmar
             // 
-            btnConfirmarVenta.Location = new Point(419, 74);
-            btnConfirmarVenta.Name = "btnConfirmarVenta";
-            btnConfirmarVenta.Size = new Size(250, 62);
-            btnConfirmarVenta.TabIndex = 25;
-            btnConfirmarVenta.Text = "CONFIRMAR VENTA";
-            btnConfirmarVenta.UseVisualStyleBackColor = true;
-            btnConfirmarVenta.Click += btnConfirmarVenta_Click;
-            // 
-            // btnFacturar
-            // 
-            btnFacturar.Location = new Point(675, 74);
-            btnFacturar.Name = "btnFacturar";
-            btnFacturar.Size = new Size(250, 62);
-            btnFacturar.TabIndex = 30;
-            btnFacturar.Text = "FACTURAR";
-            btnFacturar.UseVisualStyleBackColor = true;
-            btnFacturar.Click += btnFacturar_Click;
+            btnFacturarConfirmar.Location = new Point(565, 70);
+            btnFacturarConfirmar.Name = "btnFacturarConfirmar";
+            btnFacturarConfirmar.Size = new Size(306, 66);
+            btnFacturarConfirmar.TabIndex = 25;
+            btnFacturarConfirmar.Text = "FACTURAR Y CONFIRMAR VENTA";
+            btnFacturarConfirmar.UseVisualStyleBackColor = true;
+            btnFacturarConfirmar.Click += btnConfirmarVenta_Click;
             // 
             // label1
             // 
@@ -200,17 +188,17 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(805, 345);
+            tableLayoutPanel1.Size = new Size(966, 345);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // dgvCarrito
             // 
             dgvCarrito.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCarrito.Dock = DockStyle.Fill;
-            dgvCarrito.Location = new Point(405, 3);
+            dgvCarrito.Location = new Point(486, 3);
             dgvCarrito.Name = "dgvCarrito";
             dgvCarrito.RowHeadersWidth = 62;
-            dgvCarrito.Size = new Size(397, 339);
+            dgvCarrito.Size = new Size(477, 339);
             dgvCarrito.TabIndex = 18;
             // 
             // dgvCatalogo
@@ -226,7 +214,7 @@
             dgvCatalogo.ReadOnly = true;
             dgvCatalogo.RowHeadersWidth = 62;
             dgvCatalogo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCatalogo.Size = new Size(396, 339);
+            dgvCatalogo.Size = new Size(477, 339);
             dgvCatalogo.TabIndex = 13;
             dgvCatalogo.CellDoubleClick += dgvCatalogo_CellDoubleClick;
             // 
@@ -238,7 +226,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "PanelVentasControl";
-            Size = new Size(805, 645);
+            Size = new Size(966, 645);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -264,8 +252,7 @@
         private ComboBox cbxCliente;
         private Label lblTotal;
         private Button btnQuitarProducto;
-        private Button btnConfirmarVenta;
-        private Button btnFacturar;
+        private Button btnFacturarConfirmar;
         private Label label1;
         private Label lblCliente;
     }

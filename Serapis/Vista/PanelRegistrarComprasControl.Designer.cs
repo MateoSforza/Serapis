@@ -118,29 +118,26 @@
             // lblStock
             // 
             lblStock.AutoSize = true;
-            lblStock.Location = new Point(609, 146);
+            lblStock.Location = new Point(797, 146);
             lblStock.Name = "lblStock";
-            lblStock.Size = new Size(59, 25);
+            lblStock.Size = new Size(0, 25);
             lblStock.TabIndex = 21;
-            lblStock.Text = "label3";
             // 
             // lblPrecio
             // 
             lblPrecio.AutoSize = true;
-            lblPrecio.Location = new Point(466, 146);
+            lblPrecio.Location = new Point(569, 146);
             lblPrecio.Name = "lblPrecio";
-            lblPrecio.Size = new Size(59, 25);
+            lblPrecio.Size = new Size(0, 25);
             lblPrecio.TabIndex = 20;
-            lblPrecio.Text = "label2";
             // 
             // lblCodigo
             // 
             lblCodigo.AutoSize = true;
             lblCodigo.Location = new Point(360, 146);
             lblCodigo.Name = "lblCodigo";
-            lblCodigo.Size = new Size(59, 25);
+            lblCodigo.Size = new Size(0, 25);
             lblCodigo.TabIndex = 19;
-            lblCodigo.Text = "label1";
             // 
             // lblProveedor
             // 

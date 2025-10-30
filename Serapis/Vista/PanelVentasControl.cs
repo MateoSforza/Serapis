@@ -3,6 +3,7 @@ using Serapis.Controladores;
 using Serapis.Data;
 using Serapis.Modelo;
 using Serapis.Servicios;
+using Serapis.UI.Vista;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -145,6 +146,7 @@ namespace Serapis.Vista
 
         private void btnConfirmarVenta_Click(object sender, EventArgs e)
         {
+            // Validar carrito
             if (!carrito.Any())
             {
                 MessageBox.Show("No hay productos en el carrito.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -154,16 +156,29 @@ namespace Serapis.Vista
             int? clienteId = cbxCliente.SelectedIndex >= 0 ? (int?)cbxCliente.SelectedValue : null;
             string? recetaTexto = chkRequiereReceta.Checked ? txtReceta.Text.Trim() : null;
 
-            var (resultado, _) = _ventaController.RegistrarVenta(clienteId, carrito, recetaTexto);
-
-            if (resultado == "OK")
+            // Registrar la venta primero
+            var (resultado, ventaId) = _ventaController.RegistrarVenta(clienteId, carrito, recetaTexto);
+            if (resultado != "OK" || ventaId == null)
             {
-                MessageBox.Show("Venta registrada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(resultado, "Error al registrar venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Abrir formulario de facturación con la venta ya registrada
+            using var frm = new FormFacturar(_context, ventaId.Value, clienteId);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                // Facturación exitosa
+                MessageBox.Show("Venta y factura registradas exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarFormulario();
             }
             else
             {
-                MessageBox.Show(resultado, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Si el usuario cancela la facturación, la venta ya quedó registrada
+                MessageBox.Show("Venta registrada pero la facturación fue cancelada.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                LimpiarFormulario();
             }
         }
 
@@ -181,31 +196,6 @@ namespace Serapis.Vista
         {
             lblReceta.Visible = chkRequiereReceta.Checked;
             txtReceta.Visible = chkRequiereReceta.Checked;
-        }
-
-        private void btnFacturar_Click(object? sender, EventArgs e)
-        {
-            if (!carrito.Any())
-            {
-                MessageBox.Show("No hay productos en el carrito.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            int? clienteId = cbxCliente.SelectedIndex >= 0 ? (int?)cbxCliente.SelectedValue : null;
-            string? recetaTexto = chkRequiereReceta.Checked ? txtReceta.Text.Trim() : null;
-
-            var (resultado, ventaId) = _ventaController.RegistrarVenta(clienteId, carrito, recetaTexto);
-            if (resultado != "OK" || ventaId == null)
-            {
-                MessageBox.Show(resultado, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            using var frm = new FormFacturar(_context, ventaId.Value, clienteId);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-
-            LimpiarFormulario();
         }
     }
 }
